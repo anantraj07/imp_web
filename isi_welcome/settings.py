@@ -4,11 +4,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 import os
 
 SECRET_KEY = os.environ.get("SECRET_KEY", "")
+DEBUG = os.environ.get("DEBUG", "False") == "True"
+ADMIN_PATH = os.environ.get("ADMIN_PATH", "admin/isi-staff-only-xk92/")
 
 if not SECRET_KEY:
     raise RuntimeError("SECRET_KEY environment variable is not set!")
-
-DEBUG = False
 ALLOWED_HOSTS = ["*"]
 CSRF_TRUSTED_ORIGINS = ["https://isinewcomer.up.railway.app"]
 INSTALLED_APPS = [
