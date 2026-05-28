@@ -4,6 +4,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "isi-welcome-secret-change-in-production-2025"
 DEBUG = True
 ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = ["https://isinewcomer.up.railway.app"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
