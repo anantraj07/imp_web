@@ -1,1 +1,1 @@
-web: gunicorn isi_welcome.wsgi
+web: python manage.py collectstatic --noinput && gunicorn isi_welcome.wsgi
