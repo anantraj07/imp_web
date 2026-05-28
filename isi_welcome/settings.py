@@ -4,7 +4,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 import os
 SECRET_KEY = os.environ.get("SECRET_KEY", "")
 DEBUG = False
-DEBUG = True
 ALLOWED_HOSTS = ["*"]
 CSRF_TRUSTED_ORIGINS = ["https://isinewcomer.up.railway.app"]
 
