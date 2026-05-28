@@ -2,11 +2,15 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 import os
+
 SECRET_KEY = os.environ.get("SECRET_KEY", "")
+
+if not SECRET_KEY:
+    raise RuntimeError("SECRET_KEY environment variable is not set!")
+
 DEBUG = False
 ALLOWED_HOSTS = ["*"]
 CSRF_TRUSTED_ORIGINS = ["https://isinewcomer.up.railway.app"]
-
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
