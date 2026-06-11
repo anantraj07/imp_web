@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
+
     /* ── RESET & BASE ─────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -262,182 +263,8 @@
     }
     .whatsapp-btn:hover { opacity: 0.9; transform: translateY(-2px); }
 
-    /* ── PACKING LIST ────────────────────────────────── */
-    #packing { background: var(--bg2); }
-    .packing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
-    .pack-card {
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.6rem;
-      background: var(--card-bg);
-      transition: border-color 0.2s, transform 0.2s;
-    }
-    .pack-card:hover { border-color: rgba(232,184,75,0.35); transform: translateY(-3px); }
-    .pack-card-head {
-      display: flex; align-items: center; gap: 0.7rem;
-      margin-bottom: 1rem;
-    }
-    .pack-icon { font-size: 1.4rem; }
-    .pack-card-head h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem; font-weight: 600;
-    }
-    .pack-tag {
-      font-size: 0.65rem; padding: 0.2rem 0.5rem; border-radius: 4px;
-      text-transform: uppercase; letter-spacing: 0.1em; margin-left: auto;
-    }
-    .tag-must { background: rgba(232,184,75,0.15); color: var(--gold); }
-    .tag-maybe { background: rgba(62,207,207,0.12); color: var(--teal); }
-    .tag-opt { background: rgba(255,255,255,0.06); color: var(--muted); }
-    .check-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-    .check-list li {
-      display: flex; align-items: flex-start; gap: 0.7rem;
-      font-size: 0.88rem; color: var(--muted);
-      cursor: pointer; transition: color 0.15s;
-      padding: 0.3rem 0;
-    }
-    .check-list li:hover { color: var(--cream); }
-    .check-list input[type="checkbox"] {
-      appearance: none; flex-shrink: 0;
-      width: 16px; height: 16px; border: 1px solid var(--gold-dim);
-      border-radius: 3px; background: transparent;
-      cursor: pointer; margin-top: 2px;
-      transition: background 0.15s, border-color 0.15s;
-      position: relative;
-    }
-    .check-list input[type="checkbox"]:checked {
-      background: var(--gold); border-color: var(--gold);
-    }
-    .check-list input[type="checkbox"]:checked::after {
-      content: "✓"; position: absolute;
-      left: 2px; top: -1px;
-      font-size: 11px; color: var(--bg); font-weight: 700;
-    }
-    .check-list li.checked-item { text-decoration: line-through; opacity: 0.45; }
-
-    .pack-progress-bar-wrap {
-      margin-top: 2.5rem;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.5rem 2rem;
-      background: var(--card-bg);
-      display: flex; align-items: center; gap: 1.5rem;
-    }
-    .progress-info { flex: 1; }
-    .progress-info span { font-size: 0.8rem; color: var(--muted); }
-    .progress-info strong { color: var(--gold); font-family: 'Space Mono', monospace; }
-    .progress-bar-outer {
-      flex: 3; height: 6px; background: rgba(255,255,255,0.06);
-      border-radius: 3px; overflow: hidden;
-    }
-    .progress-bar-inner {
-      height: 100%; background: linear-gradient(90deg, var(--gold-dim), var(--gold));
-      border-radius: 3px; transition: width 0.4s ease;
-      width: 0%;
-    }
-
-    /* ── FOOD SECTION ─────────────────────────────────── */
-    #food { background: var(--bg3); }
-    .food-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem; margin-top: 3rem;
-    }
-    .food-card {
-      border: 1px solid var(--border); border-radius: var(--radius);
-      overflow: hidden; background: var(--card-bg);
-      transition: transform 0.2s, border-color 0.2s;
-    }
-    .food-card:hover { transform: translateY(-3px); border-color: rgba(62,207,207,0.35); }
-    .food-card-header {
-      padding: 1.4rem 1.6rem 1rem;
-      border-bottom: 1px solid var(--border);
-      display: flex; align-items: center; gap: 0.8rem;
-    }
-    .food-card-header .meal-icon { font-size: 1.6rem; }
-    .food-card-header h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem; font-weight: 600;
-    }
-    .meal-time {
-      margin-left: auto; font-family: 'Space Mono', monospace;
-      font-size: 0.72rem; color: var(--teal);
-      border: 1px solid rgba(62,207,207,0.3);
-      padding: 0.25rem 0.5rem; border-radius: 4px;
-    }
-    .food-card-body { padding: 1.2rem 1.6rem; }
-    .food-step {
-      display: flex; gap: 0.7rem; margin-bottom: 0.7rem;
-      font-size: 0.85rem; color: var(--muted);
-    }
-    .food-step-dot {
-      flex-shrink: 0; width: 6px; height: 6px;
-      border-radius: 50%; background: var(--gold);
-      margin-top: 7px;
-    }
-    .food-note {
-      margin-top: 1rem; padding: 0.7rem 1rem;
-      background: rgba(232,184,75,0.06);
-      border-left: 2px solid var(--gold);
-      border-radius: 0 6px 6px 0;
-      font-size: 0.82rem; color: var(--muted);
-    }
-
-    /* ── HOSTEL SECTION ───────────────────────────────── */
-    #hostel { background: var(--bg2); }
-    .hostel-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 1.5rem; margin-top: 3rem;
-    }
-    .hostel-card {
-      border: 1px solid var(--border); border-radius: var(--radius);
-      padding: 1.6rem; background: var(--card-bg);
-    }
-    .hostel-card h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem; margin-bottom: 1rem;
-      color: var(--gold);
-    }
-    .floor-row {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.04);
-      font-size: 0.88rem;
-    }
-    .floor-row:last-child { border-bottom: none; }
-    .floor-label { color: var(--cream); font-weight: 500; }
-    .floor-note { color: var(--muted); font-size: 0.8rem; text-align: right; max-width: 60%; }
-    .floor-badge {
-      font-size: 0.65rem; padding: 0.2rem 0.5rem; border-radius: 4px;
-      font-family: 'Space Mono', monospace;
-    }
-    .badge-best { background: rgba(62,207,207,0.15); color: var(--teal); }
-    .badge-good { background: rgba(232,184,75,0.12); color: var(--gold); }
-    .badge-ok { background: rgba(255,255,255,0.06); color: var(--muted); }
-    .checklist-hostel { list-style: none; }
-    .checklist-hostel li {
-      padding: 0.55rem 0; border-bottom: 1px solid rgba(255,255,255,0.04);
-      font-size: 0.87rem; color: var(--muted);
-      display: flex; gap: 0.6rem; align-items: flex-start;
-    }
-    .checklist-hostel li:last-child { border-bottom: none; }
-    .checklist-hostel li::before {
-      content: "→"; color: var(--gold); flex-shrink: 0; margin-top: 1px;
-    }
-    .wing-chart {
-      margin-top: 1.5rem; padding: 1rem;
-      background: rgba(0,0,0,0.2); border-radius: 8px;
-      font-size: 0.82rem; color: var(--muted);
-    }
-    .wing-chart .wing-rank {
-      font-family: 'Space Mono', monospace;
-      color: var(--gold); font-size: 1rem;
-      margin-bottom: 0.4rem;
-    }
+    /* ── RANK CHECKER ─────────────────────────────────── */
+    #results { background: var(--bg2); }
 
     /* ── ADMISSION TIMELINE ───────────────────────────── */
     #admission { background: var(--bg); }
@@ -557,6 +384,15 @@
       border-top: 1px solid var(--border); padding-top: 1.5rem; margin-top: 1.5rem;
     }
 
+    /* ── FOOD NOTE (reused for misc notes) ──────────────── */
+    .food-note {
+      margin-top: 1rem; padding: 0.7rem 1rem;
+      background: rgba(232,184,75,0.06);
+      border-left: 2px solid var(--gold);
+      border-radius: 0 6px 6px 0;
+      font-size: 0.82rem; color: var(--muted);
+    }
+
     /* ── DIVIDER ────────────────────────────────────── */
     .divider {
       width: 60px; height: 1px; background: var(--gold-dim);
@@ -592,7 +428,7 @@
       nav { padding: 0.9rem 1.2rem; }
       .nav-links { display: none; }
       .join-card { grid-template-columns: 1fr; gap: 2rem; padding: 2rem; }
-      .hostel-grid, .aadhar-grid { grid-template-columns: 1fr; }
+      .aadhar-grid { grid-template-columns: 1fr; }
       section { padding: 3.5rem 1.2rem; }
     }
   </style>
@@ -606,12 +442,12 @@
 <nav>
   <a class="nav-brand" href="#hero">ISI <span>Kolkata</span></a>
   <ul class="nav-links">
+    <li><a href="#results">Results</a></li>
     <li><a href="#join">Join</a></li>
-    <li><a href="#packing">Packing</a></li>
-    <li><a href="#food">Food</a></li>
-    <li><a href="#hostel">Hostel</a></li>
     <li><a href="#admission">Admission</a></li>
-    <li><a href="#join" class="nav-cta">G-Form ↗</a></li>
+    <li><a href="#aadhar">Aadhaar</a></li>
+    <li><a href="/guide/">Campus Guide ↗</a></li>
+    <li><a href="{{ config.gform_url }}" target="_blank" class="nav-cta">G-Form ↗</a></li>
   </ul>
 </nav>
 
@@ -640,14 +476,14 @@
   </h1>
   <p class="hero-sub">
     The Indian Statistical Institute — where numbers meet intellect.
-    Everything you need to know before you arrive, in one place.
+    Check your merit list rank, fill the G-Form, and get ready for admission day.
   </p>
   <div class="hero-actions">
-    <a href="{{ config.gform_url }}" target="_blank" class="btn-primary">
-      📋 Fill the G-Form
+    <a href="#results" class="btn-primary">
+      🏆 Check Your Rank
     </a>
-    <a href="#packing" class="btn-secondary">
-      Explore Guide ↓
+    <a href="/guide/" class="btn-secondary">
+      Campus Guide ↓
     </a>
   </div>
 
@@ -656,6 +492,295 @@
     scroll
   </div>
 </section>
+
+<!-- ── RANK CHECKER ─────────────────────────────────── -->
+<section id="results" style="background: var(--bg2);">
+  <div class="container">
+    <div class="section-eyebrow reveal">Admission 2026</div>
+    <h2 class="section-title reveal">Merit List — Rank Checker</h2>
+    <p class="section-desc reveal">
+      Enter your registration code to instantly see your rank across all categories.
+      Based on the official merit list dated June 10, 2026.
+    </p>
+
+    <div class="reveal" style="margin-top:2.5rem; max-width:560px;">
+      <div style="display:flex; gap:0.8rem;">
+        <input
+          type="text" id="reg-input"
+          placeholder="e.g. BST-CC-D628"
+          style="flex:1; background:var(--card-bg); border:1px solid var(--border);
+                 border-radius:8px; padding:0.85rem 1.2rem; color:var(--cream);
+                 font-family:'DM Sans',sans-serif; font-size:0.95rem; outline:none;
+                 transition:border-color 0.2s; text-transform:uppercase;"
+          oninput="this.value=this.value.toUpperCase()"
+          onkeydown="if(event.key==='Enter')checkRank()"
+        />
+        <button onclick="checkRank()" class="btn-primary" style="white-space:nowrap;">
+          Check Rank
+        </button>
+      </div>
+      <div id="rank-result" style="margin-top:1.2rem;"></div>
+    </div>
+
+    <div class="reveal" style="margin-top:2rem; padding:1rem 1.4rem;
+         background:rgba(232,184,75,0.05); border:1px solid var(--border);
+         border-radius:10px; font-size:0.8rem; color:var(--muted); max-width:560px;">
+      <strong style="color:var(--gold);">Note:</strong>
+      A place in the merit list does not guarantee admission — eligibility criteria will be
+      verified at the time of Final Admission. Results governed by
+      <a href="https://admission.isical.ac.in/" target="_blank" style="color:var(--teal);">
+        admission.isical.ac.in
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+const MERIT_DATA = {
+  "BST-CC-D628":  [["GEN(F)",1],["GEN(N)",22]],
+  "BST-DH-E356":  [["GEN(F)",2],["GEN(N)",33]],
+  "BST-DP-A049":  [["GEN(F)",3],["GEN(N)",47]],
+  "BST-BP-A090":  [["GEN(F)",4],["GEN(N)",103]],
+  "BST-VP-A075":  [["GEN(F)",5],["GEN(N)",118],["OBC-NCL(F)",2],["OBC-NCL(N)",16]],
+  "BST-JS-A079":  [["GEN(F)",6],["GEN(N)",130],["OBC-NCL(F)",3],["OBC-NCL(N)",17]],
+  "BST-CC-D135":  [["GEN(F)",7],["GEN(N)",132]],
+  "BST-CC-D116":  [["GEN(F)",8],["GEN(N)",135]],
+  "BST-MB-A248":  [["GEN(F)",9],["GEN(N)",144]],
+  "BST-DH-E148":  [["GEN(F)",10],["GEN(N)",145]],
+  "BST-BG-B265":  [["GEN(N)",1]],
+  "BST-CC-D323":  [["GEN(N)",2]],
+  "BST-DH-C390":  [["GEN(N)",3]],
+  "BST-DH-C355":  [["GEN(N)",4]],
+  "BST-CC-D276":  [["GEN(N)",5]],
+  "BST-DN-A185":  [["GEN(N)",6]],
+  "BST-DH-C421":  [["GEN(N)",7]],
+  "BST-MH-A107":  [["GEN(N)",8]],
+  "BST-DH-E067":  [["GEN(N)",9]],
+  "BST-KL-A084":  [["GEN(N)",10]],
+  "BST-CB-A010":  [["GEN(N)",11]],
+  "BST-HY-A014":  [["GEN(N)",12],["OBC-NCL(N)",1]],
+  "BST-DH-C372":  [["GEN(N)",13]],
+  "BST-MH-A286":  [["GEN(N)",14],["OBC-NCL(N)",2]],
+  "BST-BG-B039":  [["GEN(N)",15]],
+  "BST-CC-D682":  [["GEN(N)",16]],
+  "BST-CC-D609":  [["GEN(N)",17]],
+  "BST-DP-A092":  [["GEN(N)",18]],
+  "BST-DD-A018":  [["GEN(N)",19]],
+  "BST-DH-E083":  [["GEN(N)",20]],
+  "BST-MH-A186":  [["GEN(N)",21]],
+  "BST-CC-D679":  [["GEN(N)",22],["SC(N)",1]],
+  "BST-HY-A459":  [["GEN(N)",24]],
+  "BST-DN-A081":  [["GEN(N)",25]],
+  "BST-BP-A045":  [["GEN(N)",25]],
+  "BST-MH-A242":  [["GEN(N)",27]],
+  "BST-CC-D454":  [["GEN(N)",28]],
+  "BST-DN-A035":  [["GEN(N)",29],["EWS(N)",1]],
+  "BST-BP-A031":  [["GEN(N)",29],["EWS(N)",1]],
+  "BST-DH-F025":  [["GEN(N)",29]],
+  "BST-CC-C431":  [["GEN(N)",32]],
+  "BST-VP-A242":  [["GEN(N)",34]],
+  "BST-BG-B277":  [["GEN(N)",35]],
+  "BST-MB-A174":  [["GEN(N)",36],["SC(N)",2]],
+  "BST-MB-A124":  [["GEN(N)",37]],
+  "BST-MH-A287":  [["GEN(N)",38]],
+  "BST-DP-A097":  [["GEN(N)",39],["SC(N)",3]],
+  "BST-MB-A051":  [["GEN(N)",40]],
+  "BST-NG-A108":  [["GEN(N)",41]],
+  "BST-VP-A213":  [["GEN(N)",42],["EWS(N)",3]],
+  "BST-PT-A139":  [["GEN(N)",43],["EWS(N)",4]],
+  "BST-CC-D626":  [["GEN(N)",44]],
+  "BST-LU-A178":  [["GEN(N)",45],["OBC-NCL(N)",3]],
+  "BST-CC-D195":  [["GEN(N)",46]],
+  "BST-CC-D094":  [["GEN(N)",48]],
+  "BST-HY-A040":  [["GEN(N)",49]],
+  "BST-MB-A225":  [["GEN(N)",49]],
+  "BST-MB-A078":  [["GEN(N)",51]],
+  "BST-CC-D599":  [["GEN(N)",51]],
+  "BST-HY-A137":  [["GEN(N)",53]],
+  "BST-KG-A073":  [["GEN(N)",54]],
+  "BST-BG-B236":  [["GEN(N)",55],["OBC-NCL(N)",4]],
+  "BST-BH-A167":  [["GEN(N)",55]],
+  "BST-CN-A205":  [["GEN(N)",57],["OBC-NCL(N)",5]],
+  "BST-PU-A239":  [["GEN(N)",58]],
+  "BST-KG-A155":  [["GEN(N)",58]],
+  "BST-BG-B304":  [["GEN(N)",58]],
+  "BST-BG-B112":  [["GEN(N)",61]],
+  "BST-DH-E187":  [["GEN(N)",61]],
+  "BST-KG-A137":  [["GEN(N)",61]],
+  "BST-CC-D347":  [["GEN(N)",64]],
+  "BST-CC-D407":  [["GEN(N)",65]],
+  "BST-BG-B206":  [["GEN(N)",65]],
+  "BST-CC-D498":  [["GEN(N)",67]],
+  "BST-KL-A156":  [["GEN(N)",68]],
+  "BST-VJ-A110":  [["GEN(N)",69],["EWS(N)",5]],
+  "BST-MB-A136":  [["GEN(N)",70]],
+  "BST-PT-A309":  [["GEN(N)",70],["OBC-NCL(N)",6]],
+  "BST-HY-A471":  [["GEN(N)",72]],
+  "BST-DH-C132":  [["GEN(N)",73]],
+  "BST-DD-A062":  [["GEN(N)",74]],
+  "BST-BH-A136":  [["GEN(N)",74],["EWS(N)",6]],
+  "BST-LU-A018":  [["GEN(N)",74]],
+  "BST-JS-A009":  [["GEN(N)",77]],
+  "BST-AD-A050":  [["GEN(N)",78]],
+  "BST-BG-B332":  [["GEN(N)",78]],
+  "BST-DP-A103":  [["GEN(N)",80],["EWS(N)",7]],
+  "BST-PU-A250":  [["GEN(N)",81]],
+  "BST-JP-A141":  [["GEN(N)",82]],
+  "BST-DH-C066":  [["GEN(N)",82]],
+  "BST-KL-A071":  [["GEN(N)",82],["OBC-NCL(N)",8]],
+  "BST-VN-A158":  [["GEN(N)",82],["OBC-NCL(N)",8]],
+  "BST-BG-B118":  [["GEN(N)",82],["OBC-NCL(N)",8]],
+  "BST-MH-A211":  [["GEN(N)",87]],
+  "BST-BG-B191":  [["GEN(N)",87]],
+  "BST-CC-D069":  [["GEN(N)",89]],
+  "BST-VP-A082":  [["GEN(N)",89],["OBC-NCL(N)",11]],
+  "BST-CC-D566":  [["GEN(N)",91]],
+  "BST-CC-D390":  [["GEN(N)",92]],
+  "BST-JP-A312":  [["GEN(N)",92]],
+  "BST-DH-E330":  [["GEN(N)",94],["OBC-NCL(N)",12]],
+  "BST-CC-D695":  [["GEN(N)",95]],
+  "BST-DH-E224":  [["GEN(N)",96]],
+  "BST-LU-A302":  [["GEN(N)",96]],
+  "BST-LU-A013":  [["GEN(N)",98]],
+  "BST-DN-A176":  [["GEN(N)",98],["OBC-NCL(N)",13]],
+  "BST-PU-A263":  [["GEN(N)",98],["EWS(N)",8]],
+  "BST-CC-D478":  [["GEN(N)",101]],
+  "BST-PU-A243":  [["GEN(N)",101]],
+  "BST-CC-D260":  [["GEN(N)",104]],
+  "BST-RN-A079":  [["GEN(N)",104],["OBC-NCL(N)",14]],
+  "BST-DN-A005":  [["GEN(N)",104]],
+  "BST-VP-A018":  [["GEN(N)",107],["OBC-NCL(N)",15]],
+  "BST-CC-D264":  [["GEN(N)",108]],
+  "BST-CC-D382":  [["GEN(N)",108]],
+  "BST-CC-D082":  [["GEN(N)",110]],
+  "BST-JP-A253":  [["GEN(N)",110]],
+  "BST-ML-A016":  [["GEN(N)",112],["SC(N)",4]],
+  "BST-CC-D237":  [["GEN(N)",112]],
+  "BST-MH-A013":  [["GEN(N)",114],["EWS(N)",9]],
+  "BST-DH-E216":  [["GEN(N)",115]],
+  "BST-DP-A117":  [["GEN(N)",115]],
+  "BST-ID-A083":  [["GEN(N)",115]],
+  "BST-BH-A129":  [["GEN(N)",118]],
+  "BST-MB-A157":  [["GEN(N)",118]],
+  "BST-DP-A196":  [["GEN(N)",121]],
+  "BST-LU-A244":  [["GEN(N)",122]],
+  "BST-KL-A035":  [["GEN(N)",122]],
+  "BST-CC-C335":  [["GEN(N)",124]],
+  "BST-MH-A262":  [["GEN(N)",125]],
+  "BST-CC-D355":  [["GEN(N)",126]],
+  "BST-KL-A081":  [["GEN(N)",126]],
+  "BST-HY-A434":  [["GEN(N)",126]],
+  "BST-KG-A086":  [["GEN(N)",129]],
+  "BST-HY-A067":  [["GEN(N)",130]],
+  "BST-RN-A114":  [["GEN(N)",132],["OBC-NCL(N)",18]],
+  "BST-MH-A018":  [["GEN(N)",132]],
+  "BST-CN-A213":  [["GEN(N)",135]],
+  "BST-DP-A024":  [["GEN(N)",135]],
+  "BST-CC-C326":  [["GEN(N)",138]],
+  "BST-LU-A129":  [["GEN(N)",138]],
+  "BST-PT-A056":  [["GEN(N)",138]],
+  "BST-MB-A205":  [["GEN(N)",141]],
+  "BST-PU-A025":  [["GEN(N)",141]],
+  "BST-BG-B036":  [["GEN(N)",143]],
+  "BST-KL-A059":  [["GEN(N)",145]],
+  "BST-LU-A138":  [["GEN(N)",147]],
+  "BST-DH-E001":  [["GEN(N)",147],["OBC-NCL(N)",20]],
+  "BST-VN-A031":  [["GEN(N)",149]],
+  "BST-HY-A094":  [["GEN(N)",150],["EWS(N)",10]],
+  "BST-BG-B087":  [["GEN(N)",150],["OBC-NCL(N)",21]],
+  "BST-DH-E203":  [["GEN(N)",150]],
+  "BST-CC-D314":  [["GEN(N)",153]],
+  "BST-BG-B301":  [["GEN(N)",154]],
+  "BST-KL-A133":  [["GEN(N)",154]],
+  "BST-BH-A113":  [["GEN(N)",156],["OBC-NCL(N)",22]],
+  "BST-CC-D424":  [["GEN(N)",157]],
+  "BST-CC-D657":  [["GEN(N)",158]],
+  "BST-JS-A061":  [["GEN(N)",158]],
+  "BST-CC-D161":  [["GEN(N)",158]],
+  "BST-HY-A267":  [["GEN(N)",158]],
+  "BST-PT-A264":  [["OBC-NCL(F)",1],["OBC-NCL(N)",7]],
+  "BST-BG-B146":  [["OBC-NCL(F)",4],["OBC-NCL(N)",28]],
+  "BST-ID-A066":  [["OBC-NCL(N)",19]],
+  "BST-VP-A041":  [["OBC-NCL(N)",23]],
+  "BST-CC-C312":  [["OBC-NCL(N)",24]],
+  "BST-PT-A189":  [["OBC-NCL(N)",25]],
+  "BST-CN-A225":  [["OBC-NCL(N)",26]],
+  "BST-CC-D598":  [["OBC-NCL(N)",27]],
+  "BST-PT-A415":  [["OBC-NCL(N)",28]],
+  "BST-MH-A086":  [["OBC-NCL(N)",30]],
+  "BST-VP-A186":  [["OBC-NCL(N)",31]],
+  "BST-CC-C247":  [["SC(F)",1],["SC(N)",16]],
+  "BST-CB-A015":  [["SC(N)",5]],
+  "BST-CC-C124":  [["SC(N)",6]],
+  "BST-MH-A210":  [["SC(N)",7]],
+  "BST-CC-D208":  [["SC(N)",8]],
+  "BST-DH-F371":  [["SC(N)",9]],
+  "BST-VP-A174":  [["SC(N)",10]],
+  "BST-JP-A082":  [["SC(N)",11]],
+  "BST-ML-A069":  [["SC(N)",12]],
+  "BST-DP-A201":  [["SC(N)",13]],
+  "BST-CC-C520":  [["SC(N)",14]],
+  "BST-VP-A235":  [["SC(N)",15]],
+  "BST-CC-C306":  [["SC(N)",16]],
+  "BST-KG-A048":  [["SC(N)",18]],
+  "BST-AD-A048":  [["SC(N)",19]],
+  "BST-CC-D515":  [["SC(N)",20]],
+  "BST-ML-A026":  [["SC(N)",21]],
+  "BST-BH-A051":  [["SC(N)",22]],
+  "BST-SG-A028":  [["SC(N)",23]],
+  "BST-CC-C592":  [["SC(N)",24]],
+  "BST-JP-A394":  [["ST(N)",1]],
+};
+
+function checkRank() {
+  const code = document.getElementById('reg-input').value.trim().toUpperCase();
+  const result = document.getElementById('rank-result');
+
+  if (!code) {
+    result.innerHTML = `<div style="color:var(--muted);font-size:0.88rem;">Please enter a registration code.</div>`;
+    return;
+  }
+
+  const found = MERIT_DATA[code];
+  if (!found) {
+    result.innerHTML = `
+      <div style="border:1px solid rgba(255,80,80,0.3); border-radius:10px; padding:1.2rem 1.5rem;
+           background:rgba(255,80,80,0.05); color:var(--muted); font-size:0.88rem;">
+        ❌ <strong style="color:#ff6b6b;">${code}</strong> not found in any merit list.
+        Double-check your registration code from your admit card.
+      </div>`;
+    return;
+  }
+
+  const rows = found.map(([cat, rank]) => `
+    <div style="display:flex; justify-content:space-between; align-items:center;
+         padding:0.6rem 0; border-bottom:1px solid rgba(255,255,255,0.05);">
+      <span style="color:var(--muted); font-size:0.88rem;">${cat}</span>
+      <span style="font-family:'Space Mono',monospace; color:var(--gold); font-size:0.95rem;">
+        Rank ${rank}
+      </span>
+    </div>`).join('');
+
+  result.innerHTML = `
+    <div style="border:1px solid rgba(62,207,207,0.25); border-radius:12px;
+         padding:1.5rem; background:rgba(62,207,207,0.04);">
+      <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:1rem;">
+        <span style="font-size:1.3rem;">✅</span>
+        <div>
+          <strong style="color:var(--cream); font-family:'Cormorant Garamond',serif; font-size:1.2rem;">
+            ${code}
+          </strong><br>
+          <span style="font-size:0.78rem; color:var(--teal);">Found in ${found.length} merit list(s)</span>
+        </div>
+      </div>
+      ${rows}
+      <div style="margin-top:1rem; font-size:0.78rem; color:var(--muted);">
+        Shortlisting criteria: GEN — UGA ≥ 63 &amp; UGA + 3.5×UGB ≥ 202 &nbsp;·&nbsp;
+        OBC-NCL — UGA ≥ 56.7 &nbsp;·&nbsp; SC/ST — UGA ≥ 44.1
+      </div>
+    </div>`;
+}
+</script>
 
 <!-- ── JOIN / G-FORM ─────────────────────────────────── -->
 <section id="join">
@@ -684,8 +809,8 @@
         <div class="join-step">
           <div class="step-num">03</div>
           <div class="step-text">
-            <strong>Read this guide top to bottom</strong>
-            <span>Everything from packing to Aadhaar seeding to mess timings is here. No more repeat questions.</span>
+            <strong>Read the full admission guide below</strong>
+            <span>Admission day steps, Aadhaar seeding, what to carry — all covered here. No more repeat questions.</span>
           </div>
         </div>
         <div class="join-step">
@@ -712,316 +837,6 @@
         </a>
         {% endif %}
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── PACKING LIST ─────────────────────────────────── -->
-<section id="packing">
-  <div class="container">
-    <div class="section-eyebrow reveal">What to Bring</div>
-    <h2 class="section-title reveal">Packing Checklist</h2>
-    <p class="section-desc reveal">
-      Curated by seniors who've been through it. Tick off as you pack — your progress is saved in the session.
-    </p>
-
-    <!-- Progress bar -->
-    <div class="pack-progress-bar-wrap reveal" style="margin-top:2rem;">
-      <div class="progress-info">
-        <span>Packed so far</span><br>
-        <strong id="packed-count">0</strong> <span>/ <span id="total-count">0</span> items</span>
-      </div>
-      <div class="progress-bar-outer">
-        <div class="progress-bar-inner" id="progress-bar"></div>
-      </div>
-    </div>
-
-    <div class="packing-grid" style="margin-top:2rem;">
-
-      <!-- Clothing -->
-      <div class="pack-card reveal">
-        <div class="pack-card-head">
-          <span class="pack-icon">👕</span>
-          <h3>Clothing</h3>
-          <span class="pack-tag tag-must">Must Carry</span>
-        </div>
-        <ul class="check-list">
-          <li><input type="checkbox" class="pack-check"> Shirts — Full &amp; Half sleeve</li>
-          <li><input type="checkbox" class="pack-check"> T-Shirts &amp; Jeans</li>
-          <li><input type="checkbox" class="pack-check"> Shorts &amp; Kurta-Pyjama</li>
-          <li><input type="checkbox" class="pack-check"> Undergarments &amp; Formal Trouser</li>
-          <li><input type="checkbox" class="pack-check"> Socks &amp; Belt &amp; Cap</li>
-          <li><input type="checkbox" class="pack-check"> Tracksuit</li>
-          <li><input type="checkbox" class="pack-check"> Bedsheets + Pillow Covers (×2 min)</li>
-          <li><input type="checkbox" class="pack-check"> Blanket &amp; Cotton Towel</li>
-        </ul>
-      </div>
-
-      <!-- Documents -->
-      <div class="pack-card reveal">
-        <div class="pack-card-head">
-          <span class="pack-icon">📄</span>
-          <h3>Documents</h3>
-          <span class="pack-tag tag-must">Must Carry</span>
-        </div>
-        <ul class="check-list">
-          <li><input type="checkbox" class="pack-check"> Admit Card</li>
-          <li><input type="checkbox" class="pack-check"> Offer Letter &amp; Acceptance Letter</li>
-          <li><input type="checkbox" class="pack-check"> Class XII Marksheet</li>
-          <li><input type="checkbox" class="pack-check"> Passing Certificate</li>
-          <li><input type="checkbox" class="pack-check"> Migration Certificate</li>
-          <li><input type="checkbox" class="pack-check"> Aadhar Card &amp; Address Proof</li>
-          <li><input type="checkbox" class="pack-check"> Passport-sized Photos (extras)</li>
-          <li><input type="checkbox" class="pack-check"> Aadhaar Seeding stamped form</li>
-        </ul>
-      </div>
-
-      <!-- Electronics -->
-      <div class="pack-card reveal">
-        <div class="pack-card-head">
-          <span class="pack-icon">💻</span>
-          <h3>Electronics</h3>
-          <span class="pack-tag tag-must">Must Carry</span>
-        </div>
-        <ul class="check-list">
-          <li><input type="checkbox" class="pack-check"> Mobile + Charger</li>
-          <li><input type="checkbox" class="pack-check"> Laptop + Charger</li>
-          <li><input type="checkbox" class="pack-check"> Earbuds / Earphones</li>
-          <li><input type="checkbox" class="pack-check"> Scientific Calculator (non-programmable)</li>
-          <li><input type="checkbox" class="pack-check"> Extension Cord</li>
-          <li><input type="checkbox" class="pack-check"> Wi-Fi Router (important!)</li>
-        </ul>
-      </div>
-
-      <!-- Accessories -->
-      <div class="pack-card reveal">
-        <div class="pack-card-head">
-          <span class="pack-icon">🧴</span>
-          <h3>Accessories</h3>
-          <span class="pack-tag tag-must">Must Carry</span>
-        </div>
-        <ul class="check-list">
-          <li><input type="checkbox" class="pack-check"> Nail Cutter</li>
-          <li><input type="checkbox" class="pack-check"> Insect Spray (monsoon essential!)</li>
-          <li><input type="checkbox" class="pack-check"> Laxman Rekha (for ants)</li>
-          <li><input type="checkbox" class="pack-check"> Umbrella / Raincoat</li>
-          <li><input type="checkbox" class="pack-check"> Clothes Hangers, Rope, Clips</li>
-          <li><input type="checkbox" class="pack-check"> Wallet, Lock &amp; Key (×2 sets)</li>
-        </ul>
-      </div>
-
-      <!-- Footwear -->
-      <div class="pack-card reveal">
-        <div class="pack-card-head">
-          <span class="pack-icon">👟</span>
-          <h3>Footwear</h3>
-          <span class="pack-tag tag-must">Must Carry</span>
-        </div>
-        <ul class="check-list">
-          <li><input type="checkbox" class="pack-check"> Sports Shoes</li>
-          <li><input type="checkbox" class="pack-check"> Bathroom Slippers</li>
-          <li><input type="checkbox" class="pack-check"> Sandals</li>
-          <li><input type="checkbox" class="pack-check"> Formal Black Shoes</li>
-          <li><input type="checkbox" class="pack-check"> Liquid Polish</li>
-        </ul>
-      </div>
-
-      <!-- Medicines -->
-      <div class="pack-card reveal">
-        <div class="pack-card-head">
-          <span class="pack-icon">💊</span>
-          <h3>Medicines</h3>
-          <span class="pack-tag tag-must">Must Carry</span>
-        </div>
-        <ul class="check-list">
-          <li><input type="checkbox" class="pack-check"> Paracetamol &amp; ORS</li>
-          <li><input type="checkbox" class="pack-check"> Cotton &amp; Relispray</li>
-          <li><input type="checkbox" class="pack-check"> Dettol &amp; Soframycin</li>
-          <li><input type="checkbox" class="pack-check"> Antiseptic Spray</li>
-          <li><input type="checkbox" class="pack-check"> Personal prescribed meds</li>
-        </ul>
-        <div class="food-note">Medical unit is available on campus for injuries.</div>
-      </div>
-
-      <!-- Can buy locally -->
-      <div class="pack-card reveal">
-        <div class="pack-card-head">
-          <span class="pack-icon">🛒</span>
-          <h3>Buy Locally</h3>
-          <span class="pack-tag tag-maybe">Optional</span>
-        </div>
-        <ul class="check-list">
-          <li><input type="checkbox" class="pack-check"> Mattress, Pillow, Bucket, Mug</li>
-          <li><input type="checkbox" class="pack-check"> Biscuits, Namkeen, Fruits</li>
-          <li><input type="checkbox" class="pack-check"> Toothbrush, Toothpaste, Soap</li>
-          <li><input type="checkbox" class="pack-check"> Mouthwash, Handwash</li>
-          <li><input type="checkbox" class="pack-check"> Stationery (stapler, highlighters…)</li>
-        </ul>
-      </div>
-
-      <!-- Stationery minimal -->
-      <div class="pack-card reveal">
-        <div class="pack-card-head">
-          <span class="pack-icon">✏️</span>
-          <h3>Stationery (Minimal)</h3>
-          <span class="pack-tag tag-must">For Admission</span>
-        </div>
-        <ul class="check-list">
-          <li><input type="checkbox" class="pack-check"> 1 Black Pen</li>
-          <li><input type="checkbox" class="pack-check"> 1 Blue Pen</li>
-          <li><input type="checkbox" class="pack-check"> Glue Stick</li>
-        </ul>
-        <div class="food-note">Rest of stationery can be ordered/bought here later.</div>
-      </div>
-
-      <!-- Winter (later) -->
-      <div class="pack-card reveal">
-        <div class="pack-card-head">
-          <span class="pack-icon">🧥</span>
-          <h3>Winter Wear</h3>
-          <span class="pack-tag tag-opt">Bring Later</span>
-        </div>
-        <ul class="check-list">
-          <li><input type="checkbox" class="pack-check"> Quilt (by September / Diwali break)</li>
-          <li><input type="checkbox" class="pack-check"> Half Sweaters (1–2 early, rest Dec)</li>
-          <li><input type="checkbox" class="pack-check"> Full Sweaters &amp; Jackets / Coats</li>
-          <li><input type="checkbox" class="pack-check"> Warm Innerwear</li>
-        </ul>
-        <div class="food-note">Heavy winter wear can be brought on later home visits.</div>
-      </div>
-
-    </div><!-- /packing-grid -->
-  </div>
-</section>
-
-<!-- ── FOOD GUIDE ──────────────────────────────────── -->
-<section id="food">
-  <div class="container">
-    <div class="section-eyebrow reveal">Eat Well</div>
-    <h2 class="section-title reveal">Food &amp; Mess Guide</h2>
-    <p class="section-desc reveal">Timings, locations, and how things work at ISI Kolkata's mess and canteens.</p>
-
-    <div class="food-grid">
-
-      <div class="food-card reveal">
-        <div class="food-card-header">
-          <span class="meal-icon">🌅</span>
-          <h3>Breakfast — BHos Mess</h3>
-          <span class="meal-time">8:30–11:00 AM</span>
-        </div>
-        <div class="food-card-body">
-          <div class="food-step"><div class="food-step-dot"></div> Head to the ground floor of the boys' hostel (CV Raman Hall)</div>
-          <div class="food-step"><div class="food-step-dot"></div> Find the queue &amp; register with name list</div>
-          <div class="food-step"><div class="food-step-dot"></div> Sign under the "Breakfast" column beside your name</div>
-          <div class="food-step"><div class="food-step-dot"></div> Take a plate and collect your food</div>
-          <div class="food-note">Lunch served on weekends only from the same mess.</div>
-        </div>
-      </div>
-
-      <div class="food-card reveal">
-        <div class="food-card-header">
-          <span class="meal-icon">🌙</span>
-          <h3>Dinner — BHos Mess</h3>
-          <span class="meal-time">8:30–10:30 PM</span>
-        </div>
-        <div class="food-card-body">
-          <div class="food-step"><div class="food-step-dot"></div> Same location as breakfast — ground floor BHos</div>
-          <div class="food-step"><div class="food-step-dot"></div> Sign under the "Dinner" column in the register</div>
-          <div class="food-step"><div class="food-step-dot"></div> Collect meal at the counter</div>
-          <div class="food-note">Evening &amp; night canteen also operates from here — great for late-night snacks.</div>
-        </div>
-      </div>
-
-      <div class="food-card reveal">
-        <div class="food-card-header">
-          <span class="meal-icon">☀️</span>
-          <h3>Lunch — 2nd Floor Canteen</h3>
-          <span class="meal-time">12:55–2:15 PM</span>
-        </div>
-        <div class="food-card-body">
-          <div class="food-step"><div class="food-step-dot"></div> Located at Rani Bhavan (College Campus)</div>
-          <div class="food-step"><div class="food-step-dot"></div> Go to the 2nd floor — expect long queues, go early</div>
-          <div class="food-step"><div class="food-step-dot"></div> Check daily menu posted on the wall</div>
-          <div class="food-step"><div class="food-step-dot"></div> Order directly — payment via cash or UPI</div>
-          <div class="food-note">Full thali available: rice, sabzi, dal, etc.</div>
-        </div>
-      </div>
-
-      <div class="food-card reveal">
-        <div class="food-card-header">
-          <span class="meal-icon">🏛️</span>
-          <h3>Lunch — 1st Floor (Govt Canteen)</h3>
-          <span class="meal-time">12:55–2:15 PM</span>
-        </div>
-        <div class="food-card-body">
-          <div class="food-step"><div class="food-step-dot"></div> Also at Rani Bhavan — 1st floor</div>
-          <div class="food-step"><div class="food-step-dot"></div> Ask for a coupon at the counter first</div>
-          <div class="food-step"><div class="food-step-dot"></div> Cheaper with limited variety — no rice usually</div>
-          <div class="food-step"><div class="food-step-dot"></div> Roti, noodles, pasta available</div>
-          <div class="food-note">Best if on a tight budget. Minimal cafeteria setup.</div>
-        </div>
-      </div>
-
-    </div><!-- /food-grid -->
-  </div>
-</section>
-
-<!-- ── HOSTEL TIPS ─────────────────────────────────── -->
-<section id="hostel">
-  <div class="container">
-    <div class="section-eyebrow reveal">Your Room</div>
-    <h2 class="section-title reveal">Hostel Room Guide</h2>
-    <p class="section-desc reveal">Floor and wing recommendations from seniors who know which rooms actually get sleep.</p>
-
-    <div class="hostel-grid">
-
-      <div class="hostel-card reveal">
-        <h3>Floor-wise Rankings</h3>
-        <div class="floor-row">
-          <span class="floor-label">2nd Floor</span>
-          <span class="floor-badge badge-best">BEST</span>
-          <span class="floor-note">Avoids insects AND summer heat — the sweet spot</span>
-        </div>
-        <div class="floor-row">
-          <span class="floor-label">1st Floor</span>
-          <span class="floor-badge badge-good">GOOD</span>
-          <span class="floor-note">Better than ground floor; some mosquito exposure</span>
-        </div>
-        <div class="floor-row">
-          <span class="floor-label">3rd Floor</span>
-          <span class="floor-badge badge-ok">OK</span>
-          <span class="floor-note">Hot in summer, but may beat ground floor this semester</span>
-        </div>
-        <div class="floor-row">
-          <span class="floor-label">Ground Floor</span>
-          <span class="floor-badge badge-ok">AVOID</span>
-          <span class="floor-note">Closest to mess ✓ but mosquitoes are brutal in monsoon</span>
-        </div>
-
-        <div class="wing-chart">
-          <div class="wing-rank">East ≫ North &gt; West ≈ South</div>
-          General wing preference — some rooms may be exceptions based on ventilation.
-        </div>
-      </div>
-
-      <div class="hostel-card reveal">
-        <h3>Before You Finalize a Room</h3>
-        <ul class="checklist-hostel">
-          <li>Room hygiene and exact location</li>
-          <li>Furniture — bed, table, and chair condition</li>
-          <li>Washroom condition (shared) — contact washroom partner if possible</li>
-          <li>Almirah condition</li>
-          <li>Working lights, fans, exhaust fans</li>
-          <li>Bookshelf availability</li>
-          <li>Overall ventilation and natural light</li>
-        </ul>
-        <div class="food-note">
-          Minor issues (lights, fans) can be fixed via a <strong>requisition</strong> — don't reject a room solely for them. Focus on livability.
-          <br><br>
-          Communicate your room number options to the group when you receive them — seniors can guide better with specifics.
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -1138,6 +953,11 @@
         <h4>Batch G-Form</h4>
         <span>Fill this first — Batch {{ config.batch_year }}</span>
       </a>
+      <a href="https://admission.isical.ac.in/" target="_blank" class="link-card reveal">
+        <span class="link-card-icon">🎓</span>
+        <h4>ISI Admission Portal</h4>
+        <span>Official merit list &amp; admission info</span>
+      </a>
       <a href="https://www.isical.ac.in" target="_blank" class="link-card reveal">
         <span class="link-card-icon">🏛️</span>
         <h4>ISI Official Website</h4>
@@ -1158,10 +978,10 @@
         <h4>UIDAI Portal</h4>
         <span>Verify Aadhaar seeding status</span>
       </a>
-      <a href="https://www.google.com/search?q=BSTAT+Brochure+ISI+Kolkata" target="_blank" class="link-card reveal">
-        <span class="link-card-icon">📚</span>
-        <h4>B.Stat Brochure</h4>
-        <span>Know the curriculum before you arrive</span>
+      <a href="/guide/" class="link-card reveal">
+        <span class="link-card-icon">🗺️</span>
+        <h4>Campus Guide</h4>
+        <span>Packing, food, hostel &amp; more</span>
       </a>
     </div>
   </div>
@@ -1173,6 +993,9 @@
   <p>
     Made with ❤️ by your seniors for Batch {{ config.batch_year }}.<br>
     This page is updated every year — just a G-Form URL swap away.
+  </p>
+  <p>
+    <a href="/guide/" style="color:var(--gold); text-decoration:none;">→ Go to the Campus Guide (packing, food, hostel)</a>
   </p>
   <div class="footer-note">
     Indian Statistical Institute, 203 B.T. Road, Baranagar, Kolkata – 700108 &nbsp;·&nbsp;
@@ -1235,34 +1058,6 @@ const observer = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.1 });
 reveals.forEach(el => observer.observe(el));
-
-/* Packing checklist interactivity */
-(function() {
-  const checks = document.querySelectorAll('.pack-check');
-  const bar = document.getElementById('progress-bar');
-  const packedCount = document.getElementById('packed-count');
-  const totalCount = document.getElementById('total-count');
-  totalCount.textContent = checks.length;
-
-  // Restore from sessionStorage
-  checks.forEach((cb, i) => {
-    const saved = sessionStorage.getItem('pack_' + i);
-    if (saved === 'true') { cb.checked = true; cb.closest('li').classList.add('checked-item'); }
-    cb.addEventListener('change', () => {
-      cb.closest('li').classList.toggle('checked-item', cb.checked);
-      sessionStorage.setItem('pack_' + i, cb.checked);
-      updateProgress();
-    });
-  });
-
-  function updateProgress() {
-    const done = document.querySelectorAll('.pack-check:checked').length;
-    const pct = Math.round((done / checks.length) * 100);
-    bar.style.width = pct + '%';
-    packedCount.textContent = done;
-  }
-  updateProgress();
-})();
 </script>
 
 </body>
