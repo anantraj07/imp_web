@@ -6,3 +6,9 @@ def index(request):
     if not config:
         config = SiteConfig.objects.create()
     return render(request, "welcome/index.html", {"config": config})
+    
+def guide(request):
+    config = SiteConfig.objects.first()
+    if not config:
+        config = SiteConfig.objects.create()
+    return render(request, "welcome/guide.html", {"config": config})
