@@ -9,8 +9,6 @@ admin.site.index_title = "Manage Site Configuration"
 urlpatterns = [
     path(settings.ADMIN_PATH, admin.site.urls),
     path("", include("welcome.urls")),
-    path("", views.index, name="index"),
-    path("guide/", views.guide, name="guide"),
 ]
 
 
